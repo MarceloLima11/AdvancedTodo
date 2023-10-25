@@ -11,7 +11,34 @@
 </head>
 
 <body>
+    <div id="main_container">
+        <h1>Advanced Todo</h1>
 
+        <div class="main_container_area">
+            <label for="task">Add your task</label>
+            <input name="task" type="text" placeholder="What do you do?">
+            <button>+</button>
+        </div>
+
+        <div class="main_container_area">
+            <div>
+                <label for="search">Search: </label>
+                <input id="search" name="search" type="text" placeholder="Search...">
+                <button>x</button>
+            </div>
+
+            <div>
+                <label for="filter">Filter: </label>
+                <select name="filter">
+                    <option value="all" selected>All</option>
+                    <option value="done">Done</option>
+                    <option value="saab">To do</option>
+                </select>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 
 </html>

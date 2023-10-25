@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100;300;500;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Playpen Sans', sans-serif;
+}
+
+body {
+    background: url('/img/bg.jpg');
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main_container {
+    background-color: aliceblue;
+    padding: 2em;
+    border-radius: 10px;
+}
+
+#main_container h1 {
+    text-align: center;
+    padding: .2em;
+}
+
+.main_container_area {
+    margin: 1em 0;
+    border-top: 2px solid rgb(207, 204, 204);
+}
+
+.main_container_area div {
+
+    display: inline-block;
+}
+
+.main_container_area div:first-child {
+    border-right: 2px solid rgb(207, 204, 204);
+}
+
+#main_container label {
+    display: block;
+    margin: .3em 0;
+}
+
+#main_container input {
+    padding: .4em;
+    border-radius: 3px;
+    border: 1px solid #635994;
+}
+
+#main_container button {
+    padding: .4em 1em;
+    border: 2px solid #635994;
+    color: #635994;
+    font-weight: bold;
+    background: aliceblue;
+}
+
+#main_container button:hover {
+    color: aliceblue;
+    background-color: #635994;
+    border-color: black;
+}
