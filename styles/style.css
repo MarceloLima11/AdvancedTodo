@@ -18,6 +18,7 @@ body {
     background-color: aliceblue;
     padding: 2em;
     border-radius: 10px;
+    min-width: 400px;
 }
 
 #main_container h1 {
@@ -27,21 +28,24 @@ body {
 
 .main_container_area {
     margin: 1em 0;
+    padding: 1em .4em;
     border-top: 2px solid rgb(207, 204, 204);
 }
 
 .main_container_area div {
-
     display: inline-block;
+    margin-right: .5em;
 }
 
 .main_container_area div:first-child {
     border-right: 2px solid rgb(207, 204, 204);
+    padding-right: 1em;
 }
 
 #main_container label {
     display: block;
     margin: .3em 0;
+    font-weight: 900;
 }
 
 #main_container input {
@@ -52,7 +56,7 @@ body {
 
 #main_container button {
     padding: .4em 1em;
-    border: 2px solid #635994;
+    border: 2px solid black;
     color: #635994;
     font-weight: bold;
     background: aliceblue;
@@ -62,4 +66,38 @@ body {
     color: aliceblue;
     background-color: #635994;
     border-color: black;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tasks p {
+    width: 60%;
+}
+
+.tasks button {
+    margin-left: .5em;
+}
+
+.check_task {
+    transition: .3s;
+    background-color: #635994;
+    border: none;
+}
+
+.check_task p {
+    color: white;
+    text-decoration: line-through;
+}
+
+.check_task button {
+    border-color: black;
+}
+
+.hidde {
+    display: none;
 }
