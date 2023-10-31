@@ -18,7 +18,7 @@ const searchTasks = () => {
     const divTasks = document.querySelectorAll(".tasks");
 
     divTasks.forEach((task) => {
-        if (task.firstElementChild.textContent.includes(inputSearchElement.value)) {
+        if (task.firstElementChild.textContent.toLowerCase().includes(inputSearchElement.value.toLowerCase())) {
             task.classList.remove("hidde")
             return
         }
