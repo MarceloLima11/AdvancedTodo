@@ -1,3 +1,10 @@
+const divAddElement = document.querySelector("#add");
+
+const divEditElement = document.querySelector("#edit");
+const taskEditInput = document.querySelector("#taskEdit");
+const editConfirmBtn = document.querySelector("#editConfirmBtn");
+const cancelEditBtn = document.querySelector("#cancelEditBtn");
+
 const inputTaskElement = document.querySelector("#task");
 const btnTaskElement = document.querySelector("#taskBtn");
 
@@ -5,12 +12,15 @@ const inputSearchElement = document.querySelector("#search");
 const mainElement = document.querySelector("#main_container");
 const btnSearch = document.querySelector("#searchBtn");
 
-const searchTasks = () => {
-    const tasks = document.querySelectorAll(".tasks");
+let changeP;
 
-    tasks.forEach((task) => {
+const searchTasks = () => {
+    const divTasks = document.querySelectorAll(".tasks");
+
+    divTasks.forEach((task) => {
         if (task.firstElementChild.textContent.includes(inputSearchElement.value)) {
             task.classList.remove("hidde")
+            return
         }
         task.classList.add("hidde")
     })
@@ -24,6 +34,34 @@ const removeTask = (e) => {
 const checkTask = (e) => {
     const parentNode = e.target.parentElement;
     parentNode.classList.toggle("check_task");
+}
+
+const editTask = (e) => {
+    const divTasks = document.querySelectorAll(".tasks");
+    divAddElement.classList.toggle("hidde");
+    divEditElement.classList.toggle("hidde");
+
+    divTasks.forEach(divTask => {
+        divTask.classList.add("hidde")
+    })
+
+    changeP = e.target.parentElement.firstChild;
+    taskEditInput.value = changeP.textContent;
+}
+
+const cancelEdit = () => {
+    const divTasks = document.querySelectorAll(".tasks");
+    divAddElement.classList.toggle("hidde");
+    divEditElement.classList.toggle("hidde");
+
+    divTasks.forEach(divTask => {
+        divTask.classList.remove("hidde")
+    })
+}
+
+const confirmEdit = (e) => {
+    changeP.textContent = taskEditInput.value;
+    cancelEdit();
 }
 
 const addTask = () => {
@@ -45,6 +83,7 @@ const addTask = () => {
     checkBtn.addEventListener("click", checkTask);
     const editBtn = document.createElement("button");
     editBtn.textContent = "🖊️";
+    editBtn.addEventListener("click", editTask);
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "X";
     removeBtn.addEventListener("click", removeTask)
@@ -57,9 +96,11 @@ const addTask = () => {
     inputTaskElement.value = "";
 }
 
-btnTaskElement.addEventListener("click", addTask)
+btnTaskElement.addEventListener("click", addTask);
 btnSearch.addEventListener("click", () => {
     inputSearchElement.value = "";
     searchTasks()
-})
+});
 inputSearchElement.addEventListener("keyup", searchTasks);
+cancelEditBtn.addEventListener("click", cancelEdit);
+editConfirmBtn.addEventListener("click", confirmEdit);

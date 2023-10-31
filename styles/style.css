@@ -101,3 +101,8 @@ body {
 .hidde {
     display: none;
 }
+
+#edit #cancelEditBtn {
+    margin-top: 1em;
+    display: block;
+}
