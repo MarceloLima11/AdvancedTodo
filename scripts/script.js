@@ -12,6 +12,8 @@ const inputSearchElement = document.querySelector("#search");
 const mainElement = document.querySelector("#main_container");
 const btnSearch = document.querySelector("#searchBtn");
 
+const selectElement = document.querySelector("#filter");
+
 let changeP;
 
 const searchTasks = () => {
@@ -59,9 +61,39 @@ const cancelEdit = () => {
     })
 }
 
-const confirmEdit = (e) => {
+const confirmEdit = () => {
     changeP.textContent = taskEditInput.value;
     cancelEdit();
+}
+
+const filter = (e) => {
+    const divTasks = document.querySelectorAll(".tasks");
+
+    divTasks.forEach(task => {
+        switch (e.target.value) {
+            case "all": {
+                task.classList.remove("hidde");
+                break;
+            }
+            case "done": {
+                if (task.classList.contains("check_task")) {
+                    task.classList.remove("hidde");
+                } else {
+                    task.classList.add("hidde");
+                }
+                break;
+            }
+            case "todo": {
+                if (!task.classList.contains("check_task")) {
+                    task.classList.remove("hidde");
+                } else {
+                    task.classList.add("hidde");
+                }
+                break;
+            }
+        }
+    });
+
 }
 
 const addTask = () => {
@@ -104,3 +136,4 @@ btnSearch.addEventListener("click", () => {
 inputSearchElement.addEventListener("keyup", searchTasks);
 cancelEditBtn.addEventListener("click", cancelEdit);
 editConfirmBtn.addEventListener("click", confirmEdit);
+selectElement.addEventListener("change", filter);
