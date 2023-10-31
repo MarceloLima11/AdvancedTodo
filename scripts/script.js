@@ -111,7 +111,7 @@ const addTask = () => {
 
 
     const checkBtn = document.createElement("button");
-    checkBtn.textContent = "✔️";
+    checkBtn.textContent = "✔";
     checkBtn.addEventListener("click", checkTask);
     const editBtn = document.createElement("button");
     editBtn.textContent = "🖊️";
